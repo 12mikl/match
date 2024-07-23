@@ -1,0 +1,10 @@
+# 依赖环境
+FROM openjdk:8-jre
+
+# 工作目录
+WORKDIR /febs
+
+COPY ./partner-back-0.0.1-SNAPSHOT.jar /febs/partner-back-0.0.1-SNAPSHOT.jar
+
+ENTRYPOINT ["java", "-jar", "/febs/partner-back-0.0.1-SNAPSHOT.jar"]
+

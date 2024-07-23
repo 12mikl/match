@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.back.partnerMatch.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.back.partnerback.model.User">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="userName" column="userName" jdbcType="VARCHAR"/>
+            <result property="userAccount" column="userAccount" jdbcType="VARCHAR"/>
+            <result property="userPassword" column="userPassword" jdbcType="VARCHAR"/>
+            <result property="userGender" column="userGender" jdbcType="INTEGER"/>
+            <result property="userPhone" column="userPhone" jdbcType="VARCHAR"/>
+            <result property="userEmail" column="userEmail" jdbcType="VARCHAR"/>
+            <result property="userStatus" column="userStatus" jdbcType="INTEGER"/>
+            <result property="userRole" column="userRole" jdbcType="INTEGER"/>
+            <result property="isDelete" column="isDelete" jdbcType="INTEGER"/>
+            <result property="CREATED_TIME" column="CREATED_TIME" jdbcType="TIMESTAMP"/>
+            <result property="UPDATED_TIME" column="UPDATED_TIME" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userName,userAccount,
+        userPassword,userGender,userPhone,
+        userEmail,userStatus,userRole,isDelete,
+        CREATED_TIME,UPDATED_TIME
+    </sql>
+
+<!--    <select id="selectOne" resultType="com.back.partnerback.model.User">-->
+<!--        select * from user-->
+<!--    </select>-->
+</mapper>
