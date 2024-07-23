@@ -262,8 +262,6 @@ public class TeamServiceImpl extends ServiceImpl<TeamMapper, Team>
         RLock lock = redissonClient.getLock("match:join_team");
         try {
             while (true) {
-
-
                 // 获取锁，设置时间
                 if (lock.tryLock(10, 10, TimeUnit.MILLISECONDS)) {
                     // 最多能加入5个队伍
