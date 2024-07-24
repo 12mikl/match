@@ -117,8 +117,8 @@ public class UserController {
     }
 
     @ApiOperation("修改用户信息")
-    @GetMapping("updateUserInfoById")
-    public BaseResponse<Integer> updateUserInfoById(User user){
+    @PostMapping("updateUserInfoById")
+    public BaseResponse<Integer> updateUserInfoById(@RequestBody User user){
         return ResultUtils.success(userService.updateUserInfo(user));
     }
 
