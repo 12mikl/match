@@ -63,7 +63,7 @@ public interface UserService extends IService<User> {
      * @param user
      * @return
      */
-    int updateUserInfo(User user);
+    int updateUserInfo(User user,HttpServletRequest request);
 
     /**
      *  根据标签匹配用户

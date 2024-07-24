@@ -118,8 +118,8 @@ public class UserController {
 
     @ApiOperation("修改用户信息")
     @PostMapping("updateUserInfoById")
-    public BaseResponse<Integer> updateUserInfoById(@RequestBody User user){
-        return ResultUtils.success(userService.updateUserInfo(user));
+    public BaseResponse<Integer> updateUserInfoById(@RequestBody User user,HttpServletRequest request){
+        return ResultUtils.success(userService.updateUserInfo(user,request));
     }
 
     public User judgeUser(HttpServletRequest request){

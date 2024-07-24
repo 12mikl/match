@@ -223,7 +223,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public int updateUserInfo(User user) {
+    public int updateUserInfo(User user,HttpServletRequest request) {
         String userPassword = user.getUserPassword();
         UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
         if (StringUtils.isNotBlank(userPassword)) {
@@ -250,6 +250,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         updateWrapper.lambda().eq(User::getId, user.getId());
         int update = userMapper.update(new User(), updateWrapper);
+
+        User newUser = userMapper.selectById(user.getId());
+        // 修改完成后更新缓存
+        User safeUser = getSafetyUser(newUser);
+        request.getSession().removeAttribute(StatusConstant.USER_LOGIN_STATE);
+        // 记录用户登录状态
+        request.getSession().setAttribute(StatusConstant.USER_LOGIN_STATE, safeUser);
         return update;
     }
 
